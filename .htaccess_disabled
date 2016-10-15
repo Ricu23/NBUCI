@@ -1,0 +1,39 @@
+Options -Indexes
+Options +FollowSymLinks
+
+RewriteEngine on
+RewriteBase /
+
+#redirect all to non-www - use only if you want
+#RewriteCond %{HTTP_HOST} ^www\.(.*)
+#RewriteRule ^.*$ http://%1/$1 [R=301,L]
+
+RewriteRule ^static/([^.]+\.(png|jpe?g|css|js))/\d{8,15}$ static/$1 [L,R,NC]
+
+# 1 YEAR
+<FilesMatch "\.(ico|pdf|flv)$">
+Header set Cache-Control "max-age=29030400, public"
+</FilesMatch>
+# 1 WEEK
+<FilesMatch "\.(jpg|jpeg|png|gif|swf)$">
+Header set Cache-Control "max-age=29030400, public"
+</FilesMatch>
+# 2 DAYS
+<FilesMatch "\.(xml|txt|css|js|woff|eot|ttf|woff2|otf|svg)$">
+Header set Cache-Control "max-age=29030400, proxy-revalidate"
+</FilesMatch>
+# 1 MIN
+<FilesMatch "\.(html|htm|php)$">
+Header set Cache-Control "max-age=60, private, proxy-revalidate"
+</FilesMatch>
+
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+RewriteRule .* - [F]
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule . - [L]
+
+
+# basic links
+RewriteRule .*    /index.php [L]

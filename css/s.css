@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+p{
+    margin-bottom: 5px;
+}
+
+body{
+    font-family: "Courier";
+    font-size: 13px;
+    background: #111;
+    color: #bbb;
+}
+
+table{
+    font-size: 13px;
+    width: 100%;
+    vertical-align: top;
+    padding: 5px;
+}
+
+table td{
+    vertical-align: top;
+}
+
+table tr:nth-child(n+2) td:first-child{
+    width: 80px;
+    white-space: nowrap;
+}
+
+.s{ color: #47913f;}
+.e{ color: #cf3232;}
+.n{ color: #4595c7;}
+
+input{
+    opacity: 0;
+}
+
+textarea{
+    font-family: "Courier";
+    font-size: 13px;
+    border: none;
+    resize: none;
+    width: 100%;
+    background: #111;
+    color: #bbb;
+}
+
+.input{
+
+}
+
+.input span {
+    float: left;
+    min-height: 1px;
+    min-width: 8px;
+}
+
+.input span.highlight{
+    background: #01ff00;
+    color: #bbb;
+    height: 14px;
+    animation: highlight-animation .7s steps(2, start) infinite;
+    -webkit-animation: highlight-animation .7s steps(2, start) infinite;
+}
+
+@keyframes highlight-animation {
+    to {
+        background: #111;
+        color: #bbb;
+    }
+    from {
+        background: #01ff00;
+        color: #fff;
+    }
+}
+@-webkit-keyframes highlight-animation {
+    to {
+        background: #111;
+        color: #bbb;
+    }
+    from {
+        background: #01ff00;
+        color: #fff;
+    }
+}
+
+.carret {
+    background: #01ff00;
+    height: 14px;
+    margin: 0 2px;
+    width: 7px;
+    animation: blink-animation .7s steps(5, start) infinite;
+    -webkit-animation: blink-animation .7s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+@-webkit-keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
+ul{
+    margin: 15px 0 15px 35px;
+}
+
+li{
+    padding-bottom: 15px;
+}
+
+.help{ color: #bbb;}
+
+ul li div{
+    margin: 15px;
+}
